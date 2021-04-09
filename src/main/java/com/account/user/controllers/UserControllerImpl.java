@@ -1,6 +1,8 @@
 package com.account.user.controllers;
 
-import com.account.user.Dto.User;
+import com.account.user.Dto.UserDto;
+import com.account.user.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -8,28 +10,32 @@ import java.util.List;
 
 @RestController
 public class UserControllerImpl implements UserController {
+
+    @Autowired
+    UserService userService;
+
     @Override
-    public List<User> getAllUsers() {
+    public List<UserDto> getAllUsers() {
         return new ArrayList<>();
     }
 
     @Override
-    public User getById(String id) {
-        return new User();
+    public UserDto getById(long id) {
+        return new UserDto();
     }
 
     @Override
-    public User createUser(User user) {
-        return new User();
+    public UserDto createUser(UserDto user) {
+        return this.userService.addUser(user);
     }
 
     @Override
-    public User updateUser(User user) {
-        return new User();
+    public UserDto updateUser(UserDto user) {
+        return new UserDto();
     }
 
     @Override
-    public void deleteUser(String id) {
+    public void deleteUser(long id) {
         return;
     }
 }

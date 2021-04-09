@@ -1,23 +1,45 @@
 package com.account.user.Dto;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 /**
  * User Dto
  */
-public class User {
+public class UserDto {
 
-    private String id;
+    private long id;
+
+    @NotNull
+    @Size(min = 3, max = 150)
     private String name;
+
+    @NotNull
+
+    @Size(min = 9, max = 12)
     private String phone;
+
+    @NotNull
+    @Size(max = 200)
     private String email;
+
+    @Size(max = 200)
     private String address;
+
+
+    @NotNull
+    @Size(max = 56)
     private String country;
+
+    @NotNull
+    @Size(max = 50)
     private String department;
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -67,5 +89,18 @@ public class User {
 
     public void setDepartment(String department) {
         this.department = department;
+    }
+
+    @Override
+    public String toString() {
+        return "UserDto{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
+                ", address='" + address + '\'' +
+                ", country='" + country + '\'' +
+                ", department='" + department + '\'' +
+                '}';
     }
 }
