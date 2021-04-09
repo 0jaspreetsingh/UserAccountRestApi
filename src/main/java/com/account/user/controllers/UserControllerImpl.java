@@ -5,7 +5,6 @@ import com.account.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -16,12 +15,12 @@ public class UserControllerImpl implements UserController {
 
     @Override
     public List<UserDto> getAllUsers() {
-        return new ArrayList<>();
+        return this.userService.getAllUsers();
     }
 
     @Override
     public UserDto getById(long id) {
-        return new UserDto();
+        return this.userService.getById(id);
     }
 
     @Override
@@ -31,11 +30,11 @@ public class UserControllerImpl implements UserController {
 
     @Override
     public UserDto updateUser(UserDto user) {
-        return new UserDto();
+        return this.userService.addUser(user);
     }
 
     @Override
     public void deleteUser(long id) {
-        return;
+        this.userService.deleteUser(id);
     }
 }
