@@ -46,8 +46,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Login to Docker Hub
-        run: docker login -u ${{ dev.DOCKER_USERNAME }} -p ${{ dev.USERACCCOUNTACCCESSTOKEN }}
+        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.USERACCCOUNTACCCESSTOKEN }}
       - name: Build Container image
-        run: docker build -t ${{ dev.DOCKER_REPO }}:latest .
+        run: docker build -t ${{ secrets.DOCKER_REPO }}:latest .
       - name: Publish Docker image
-        run: docker push ${{ dev.DOCKER_REPO }}
+        run: docker push ${{ secrets.DOCKER_REPO }}
