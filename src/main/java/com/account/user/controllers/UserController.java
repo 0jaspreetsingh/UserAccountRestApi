@@ -1,9 +1,10 @@
 package com.account.user.controllers;
 
 
-import com.account.user.Dto.User;
+import com.account.user.Dto.UserDto;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -14,21 +15,21 @@ public interface UserController {
      * @return
      */
     @GetMapping
-    public List<User> getAllUsers();
+    public List<UserDto> getAllUsers();
 
     /**
      * @param id
      * @return
      */
     @GetMapping("{id}")
-    public User getById(@PathVariable String id);
+    public UserDto getById(@PathVariable long id);
 
     /**
      * @param user
      * @return
      */
     @PostMapping
-    public User createUser(User user);
+    public UserDto createUser(@Valid @RequestBody UserDto user);
 
 
     /**
@@ -36,11 +37,11 @@ public interface UserController {
      * @return
      */
     @PutMapping
-    public User updateUser(User user);
+    public UserDto updateUser(@Valid @RequestBody UserDto user);
 
     /**
      * @param id
      */
     @DeleteMapping("{id}")
-    public void deleteUser(@PathVariable String id);
+    public void deleteUser(@PathVariable long id);
 }
