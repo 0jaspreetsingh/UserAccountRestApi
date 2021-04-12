@@ -6,7 +6,7 @@ Spring boot rest api. <br>
 
 ## Angular Front-end github link
 
-https://github.com/0jaspreetsingh/UserAccountRestApi
+https://github.com/0jaspreetsingh/UserAccountDashboard
 
 ## Database
 
